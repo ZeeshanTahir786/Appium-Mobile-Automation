@@ -8,6 +8,8 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
@@ -47,6 +49,26 @@ public class BaseTest {
         ));
     }
 
+    public void scrollToTheEndAction() {
+        boolean canScrollMore;
+        do {
+            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 200, "height", 200,
+                    "direction", "down",
+                    "percent", 3.0
+            ));
+        } while ((canScrollMore));
+    }
+
+    public void swipeAction(WebElement element, String direction) {
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId(),
+                "direction", direction,
+                "percent", 0.75
+        ));
+    }
+
+    @AfterClass
     public void tearDown() {
         driver.quit();
         serviceBuilder.stop();

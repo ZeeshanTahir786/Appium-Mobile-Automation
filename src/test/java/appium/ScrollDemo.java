@@ -11,10 +11,9 @@ public class ScrollDemo extends BaseTest {
         driver.findElement(AppiumBy.accessibilityId("Views")).click();
 
 //      this method is used when scroll is known : it uses the Google engine
-//        driver.findElement(AppiumBy.androidUIAutomator(("new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView\"))")));
+        driver.findElement(AppiumBy.androidUIAutomator(("new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView\"))")));
 
 //      When scroll is not known : It's appium official method
-
         boolean canScrollMore;
         do {
             canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
