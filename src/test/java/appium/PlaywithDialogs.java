@@ -13,5 +13,9 @@ public class PlaywithDialogs extends BaseTest {
         driver.findElement(By.id("io.appium.android.apis:id/two_buttons")).click();
         Assert.assertTrue(driver.findElement(By.id("android:id/button1")).isDisplayed());
         driver.findElement(By.id("android:id/button1")).click();
+
+
+        driver.findElement(By.id("io.appium.android.apis:id/two_buttons2")).click();
+        driver.findElement(By.id("android:id/button1")).click();
     }
 }
