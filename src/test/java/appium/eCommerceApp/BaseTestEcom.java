@@ -1,4 +1,4 @@
-package appium;
+package appium.eCommerceApp;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
@@ -9,7 +9,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
@@ -17,7 +16,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class BaseTest {
+public class BaseTestEcom {
     AndroidDriver driver;
     AppiumDriverLocalService serviceBuilder;
 
