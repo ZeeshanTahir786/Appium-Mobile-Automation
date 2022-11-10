@@ -35,9 +35,7 @@ public class BaseTest {
 //        Configure Android emulator
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Pixel 3a XL API 33 Tiramisu");
-//      options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/ApiDemos-debug.apk");
-        options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/General-Store.apk");
-
+        options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/ApiDemos-debug.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
