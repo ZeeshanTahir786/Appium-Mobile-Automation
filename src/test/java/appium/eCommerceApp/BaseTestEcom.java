@@ -34,6 +34,7 @@ public class BaseTestEcom {
 //        Configure Android emulator
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Pixel 3a XL API 33 Tiramisu");
+        options.setChromedriverExecutable("/Users/hafizzeeshan/Downloads/chromedriver");
 //      options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/ApiDemos-debug.apk");
         options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/General-Store.apk");
 

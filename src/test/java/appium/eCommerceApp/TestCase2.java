@@ -1,12 +1,16 @@
 package appium.eCommerceApp;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Set;
 
 public class TestCase2 extends BaseTestEcom {
     @Test
@@ -47,7 +51,20 @@ public class TestCase2 extends BaseTestEcom {
 
         driver.findElement(By.xpath("//android.widget.CheckBox")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
-
         Thread.sleep(3000);
+        Set<String> contexts = driver.getContextHandles();
+
+        for (String contextName : contexts) {
+            System.out.println(contextName);
+        }
+
+        driver.context("WEBVIEW_com.androidsample.generalstore");
+        driver.findElement(By.name("q")).sendKeys("nisum.com");
+        driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+        Thread.sleep(3000);
+
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+
+        driver.context("NATIVE_APP");
     }
 }
