@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TestCase2 extends BaseTestEcom {
     @Test
-    public void tc02() {
+    public void tc02() throws InterruptedException {
         driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Zeeshan");
         driver.hideKeyboard();
         driver.findElement(By.id("com.androidsample.generalstore:id/radioFemale")).click();
@@ -38,5 +38,16 @@ public class TestCase2 extends BaseTestEcom {
         String mobileAmount = driver.findElement(By.id("com.androidsample.generalstore:id/totalAmountLbl")).getText();
         Double displayFormattedAmount = getFormattedPrice(mobileAmount);
         Assert.assertEquals(displayFormattedAmount, totalsum);
+
+        WebElement ele = driver.findElement(By.id("com.androidsample.generalstore:id/termsButton"));
+        longPressAction(ele);
+        String alertTxt = driver.findElement(By.id("com.androidsample.generalstore:id/alertTitle")).getText();
+        Assert.assertEquals(alertTxt, "Terms Of Conditions");
+        driver.findElement(By.id("android:id/button1")).click();
+
+        driver.findElement(By.xpath("//android.widget.CheckBox")).click();
+        driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
+
+        Thread.sleep(3000);
     }
 }
