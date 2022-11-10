@@ -68,6 +68,11 @@ public class BaseTestEcom {
         ));
     }
 
+    public Double getFormattedPrice(String amount) {
+        Double formatedPrice = Double.parseDouble(amount.substring(1));
+        return formatedPrice;
+    }
+
     @AfterClass
     public void tearDown() {
         driver.quit();
