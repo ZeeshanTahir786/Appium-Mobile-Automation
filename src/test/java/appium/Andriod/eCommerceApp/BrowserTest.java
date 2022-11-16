@@ -1,4 +1,4 @@
-package appium.eCommerceApp;
+package appium.Andriod.eCommerceApp;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

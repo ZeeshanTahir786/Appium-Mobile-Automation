@@ -1,4 +1,4 @@
-package appium;
+package appium.Andriod;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;

@@ -1,4 +1,4 @@
-package appium;
+package appium.Andriod.eCommerceApp;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
@@ -9,7 +9,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
 import java.io.File;
@@ -17,7 +16,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class BaseTest {
+public class BaseTestEcom {
     AndroidDriver driver;
     AppiumDriverLocalService serviceBuilder;
 
@@ -35,7 +34,10 @@ public class BaseTest {
 //        Configure Android emulator
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Pixel 3a XL API 33 Tiramisu");
-        options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/ApiDemos-debug.apk");
+        options.setChromedriverExecutable("/Users/hafizzeeshan/Downloads/chromedriver");
+//      options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/ApiDemos-debug.apk");
+        options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/General-Store.apk");
+
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
@@ -65,6 +67,11 @@ public class BaseTest {
                 "direction", direction,
                 "percent", 0.75
         ));
+    }
+
+    public Double getFormattedPrice(String amount) {
+        Double formatedPrice = Double.parseDouble(amount.substring(1));
+        return formatedPrice;
     }
 
     @AfterClass
