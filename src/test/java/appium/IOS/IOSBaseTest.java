@@ -28,7 +28,8 @@ public class IOSBaseTest {
 
         XCUITestOptions options = new XCUITestOptions();
         options.setDeviceName("iPhone 14 Pro");
-        options.setApp("/Users/hafizzeeshan/Desktop/UIKitCatalog.app");
+        options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/TestApp 3.app");
+//        options.setApp("/Users/hafizzeeshan/Desktop/UIKitCatalog.app");
         options.setPlatformVersion("16.1");
 //      Appium => WebDriver Agent =>  IOS Apps.
         options.setWdaLaunchTimeout(Duration.ofSeconds(20));
