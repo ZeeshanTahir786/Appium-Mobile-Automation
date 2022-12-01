@@ -20,16 +20,16 @@ public class IOSBaseTest {
     @BeforeClass
     public void ConfigureAppium() throws MalformedURLException {
 
-        serviceBuilder = new AppiumServiceBuilder().withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
-                .withIPAddress("127.0.0.1")
-                .usingPort(4723).build();
-        serviceBuilder.start();
+//        serviceBuilder = new AppiumServiceBuilder().withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
+//                .withIPAddress("127.0.0.1")
+//                .usingPort(4723).build();
+//        serviceBuilder.start();
 
 
         XCUITestOptions options = new XCUITestOptions();
         options.setDeviceName("iPhone 14 Pro");
-        options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/TestApp 3.app");
-//        options.setApp("/Users/hafizzeeshan/Desktop/UIKitCatalog.app");
+//        options.setApp("/Users/hafizzeeshan/Downloads/AppiumFirst/src/test/java/resources/TestApp 3.app");
+        options.setApp("/Users/hafizzeeshan/downloads/UIKitCatalog 2.app");
         options.setPlatformVersion("16.1");
 //      Appium => WebDriver Agent =>  IOS Apps.
         options.setWdaLaunchTimeout(Duration.ofSeconds(20));
@@ -42,6 +42,6 @@ public class IOSBaseTest {
     @AfterClass
     public void tearDown() {
         driver.quit();
-        serviceBuilder.stop();
+//        serviceBuilder.stop();
     }
 }
