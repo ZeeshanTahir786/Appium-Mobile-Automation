@@ -18,9 +18,11 @@ public class CartPage extends AndroidActions {
     private By productPrice = By.id("com.androidsample.generalstore:id/productPrice");
     private By mobileAmount = By.id("com.androidsample.generalstore:id/totalAmountLbl");
 
-    //    WebElement ele = driver.findElement(By.id("com.androidsample.generalstore:id/termsButton"));
-//    longPressAction(ele);
     private By termsBtn = By.id("com.androidsample.generalstore:id/termsButton");
+    private By acceptBtn = By.id("android:id/button1");
+    private By checkBox = By.xpath("//android.widget.CheckBox");
+    private By proceed = By.id("com.androidsample.generalstore:id/btnProceed");
+
 
     public Double getproductsSum() {
         List<WebElement> list = driver.findElements(productPrice);
@@ -40,4 +42,13 @@ public class CartPage extends AndroidActions {
         return getFormattedPrice(driver.findElement(mobileAmount).getText());
     }
 
+    public void acceptTermsConsitions() {
+        longPressAction(driver.findElement(termsBtn));
+        driver.findElement(acceptBtn).click();
+    }
+
+    public void submitOrder() {
+        driver.findElement(checkBox).click();
+        driver.findElement(proceed).click();
+    }
 }
