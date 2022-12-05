@@ -47,4 +47,9 @@ public class AndroidActions {
                 "percent", 0.75
         ));
     }
+
+    public Double getFormattedPrice(String amount) {
+        Double formatedPrice = Double.parseDouble(amount.substring(1));
+        return formatedPrice;
+    }
 }

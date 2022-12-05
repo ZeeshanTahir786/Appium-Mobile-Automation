@@ -3,14 +3,7 @@ package POM.android;
 import POM.android.utils.AndroidActions;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.PageFactory;
-
-import java.time.Duration;
 
 public class FormPage extends AndroidActions {
     //  Page Object Factory
@@ -60,7 +53,9 @@ public class FormPage extends AndroidActions {
         driver.findElement(By.xpath("//android.widget.TextView[@text='" + countryname + "']")).click();
     }
 
-    public void clickLetsShopBtn() {
+    public ProductCatalog clickLetsShopBtn() {
         driver.findElement(letsShopBtn).click();
+        return new ProductCatalog(driver);
+
     }
 }

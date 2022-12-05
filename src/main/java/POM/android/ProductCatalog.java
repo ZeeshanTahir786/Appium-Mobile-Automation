@@ -1,7 +1,6 @@
 package POM.android;
 
 import POM.android.utils.AndroidActions;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 
@@ -24,8 +23,9 @@ public class ProductCatalog extends AndroidActions {
         driver.findElements(product).get(index).click();
     }
 
-    public void clickAddToCart() {
+    public CartPage clickAddToCart() {
         driver.findElement(addToCartBtn).click();
+        return new CartPage(driver);
     }
 
 }

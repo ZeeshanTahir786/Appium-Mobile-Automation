@@ -1,7 +1,9 @@
 package appium.POM.andriod;
 
+import POM.android.CartPage;
 import POM.android.FormPage;
 import POM.android.ProductCatalog;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class EndToEnd extends BaseTestEcom {
@@ -12,11 +14,12 @@ public class EndToEnd extends BaseTestEcom {
         formPage.setNameField("Hafiz Zeeshan");
         formPage.setGender("female");
         formPage.setCountrySelection("Argentina");
-        formPage.clickLetsShopBtn();
-
-        ProductCatalog catalog = new ProductCatalog(driver);
+        ProductCatalog catalog = formPage.clickLetsShopBtn();
         catalog.addProdToCartByIndex(0);
         catalog.addProdToCartByIndex(0);
-        catalog.clickAddToCart();
+        CartPage cartPage = catalog.clickAddToCart();
+        double totalSum = cartPage.getproductsSum();
+        double displayFormatedSum = cartPage.getTotalAmountDisplayed();
+        Assert.assertEquals(totalSum, displayFormatedSum);
     }
 }
