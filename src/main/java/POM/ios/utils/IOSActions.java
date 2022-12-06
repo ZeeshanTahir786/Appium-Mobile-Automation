@@ -1,5 +1,6 @@
 package POM.ios.utils;
 
+import POM.AppiumUtils;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -13,11 +14,12 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IOSActions {
+public class IOSActions extends AppiumUtils {
 
     IOSDriver driver;
 
     public IOSActions(IOSDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
@@ -29,10 +31,11 @@ public class IOSActions {
         driver.executeScript("mobile:touchAndHold", params);
     }
 
-    public void scrollToWebElement(WebElement ele) {
+    public void scrollToWebElement(WebElement ele, String direction) {
         Map<String, Object> params = new HashMap<>();
         params.put("elementId", ((RemoteWebElement) ele).getId());
-        params.put("direction", "down");
+        params.put("direction", direction);
+//        params.put("direction", "down");
         driver.executeScript("mobile:scroll", params);
     }
 
@@ -42,7 +45,7 @@ public class IOSActions {
 
     public void swipeAction(WebElement element, String direction) {
         Map<String, Object> params = new HashMap<>();
-        params.put("direction", "left");
+        params.put("direction", direction);
         params.put("elementId", ((RemoteWebElement) element).getId());
         driver.executeScript("mobile:swipe", params);
     }

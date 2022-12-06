@@ -1,5 +1,6 @@
 package POM.android.utils;
 
+import POM.AppiumUtils;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -9,11 +10,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class AndroidActions {
+public class AndroidActions extends AppiumUtils {
 
     AndroidDriver driver;
 
     public AndroidActions(AndroidDriver driver) {
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), driver);
     }
@@ -46,10 +48,5 @@ public class AndroidActions {
                 "direction", direction,
                 "percent", 0.75
         ));
-    }
-
-    public Double getFormattedPrice(String amount) {
-        Double formatedPrice = Double.parseDouble(amount.substring(1));
-        return formatedPrice;
     }
 }

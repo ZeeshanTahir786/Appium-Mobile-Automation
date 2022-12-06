@@ -2,7 +2,6 @@ package POM.ios;
 
 import POM.ios.utils.IOSActions;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
 
@@ -17,7 +16,8 @@ public class HomePage extends IOSActions {
     //    driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == 'Alert Views'`]")).click();
     By alertViews = AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == 'Alert Views'`]");
 
-    public void selectAlertViews() {
+    public AlertViews selectAlertViews() {
         driver.findElement(alertViews).click();
+        return new AlertViews(driver);
     }
 }
