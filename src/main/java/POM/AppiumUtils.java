@@ -10,6 +10,7 @@ import java.time.Duration;
 
 public class AppiumUtils {
 
+//    AppiumDriver => IOSDriver/AndroidDriver
     AppiumDriver driver;
 
     public AppiumUtils(AppiumDriver driver) {
