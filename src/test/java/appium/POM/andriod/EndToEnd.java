@@ -19,8 +19,8 @@ public class EndToEnd extends BaseTestEcom {
         catalog.addProdToCartByIndex(0);
         CartPage cartPage = catalog.clickAddToCart();
         double totalSum = cartPage.getproductsSum();
-        double displayFormatedSum = cartPage.getTotalAmountDisplayed();
-        Assert.assertEquals(totalSum, displayFormatedSum);
+        double displayFormattedSum = cartPage.getTotalAmountDisplayed();
+        Assert.assertEquals(totalSum, displayFormattedSum);
         cartPage.acceptTermsConsitions();
         cartPage.submitOrder();
     }

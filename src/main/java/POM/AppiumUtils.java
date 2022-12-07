@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class AppiumUtils {
 
-//    AppiumDriver => IOSDriver/AndroidDriver
+    //    AppiumDriver => IOSDriver/AndroidDriver
     AppiumDriver driver;
 
     public AppiumUtils(AppiumDriver driver) {
@@ -18,8 +18,7 @@ public class AppiumUtils {
     }
 
     public Double getFormattedPrice(String amount) {
-        Double formatedPrice = Double.parseDouble(amount.substring(1));
-        return formatedPrice;
+        return Double.parseDouble(amount.substring(1));
     }
 
     public void waitForElementToAppear(WebElement ele) {
